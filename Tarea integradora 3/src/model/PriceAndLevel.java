@@ -1,4 +1,7 @@
 package model;
-public interface Precio{
-	calcularMercado();
+
+public interface PriceAndLevel {
+	public double calculateMarket();
+
+	public double calculateLevel();
 }
