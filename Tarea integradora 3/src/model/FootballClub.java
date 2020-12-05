@@ -18,6 +18,11 @@ public class FootballClub {
 	private Player[][] dressingRoomA;
 	private Player[][] dressingRoomB;
 
+	/**
+	 * constructor method <br>
+	 * <b> pre: we need the atributes and relationships </b> 
+	 * @param  name, nit, foundationDate= name String, nit String, foundationDate String 
+	 */
 	public FootballClub(String name, String nit, String foundationDate) {
 		this.name = name;
 		this.nit = nit;
@@ -30,30 +35,66 @@ public class FootballClub {
 		this.teamB = null;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return name= FootballClub name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return nit= FootballClub nit 
+	 */
 	public String getNit() {
 		return nit;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return foundationDate= FootballClub foundation date 
+	 */
 	public String getFoundationDate() {
 		return foundationDate;
 	}
 
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param name= FootballClub name 
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param name= FootballClub name 
+	 */
 	public void setNit(String nit) {
 		this.nit = nit;
 	}
 
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param foundationDate= FootballClub foundation date 
+	 */
 	public void setFoundationDate(String foundationDate) {
 		this.foundationDate = foundationDate;
 	}
 
+
+	/**
+	 * count how many players are in each dressing room and how many HeadCoach are in each office <br>
+	 * <b> pre: the office matrix and the dressing room matrix must be initialized  </b> 
+	 * @return a message that say, how many players are in each dressing room and how many HeadCoach are in each office
+	 */
 	public String showInstallationsInfo() {
 		String msg = "";
 		int dra = 0;
@@ -87,6 +128,13 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * is in charge of verifying if the song was added correctly<br>
+	 * <b> pre: we need the information of the song already created and that it has gone through the "addsongtoplaylist" methods in the main and in the MCS </b> 
+	 * @param objsong song information
+	 * @param objuser user information
+	 * @return a message that say, if the song add to playlist correctly or not
+	 */
 	public Employee findEmployee(String name) {
 		Employee objSearch = null;
 		boolean findPl = false;

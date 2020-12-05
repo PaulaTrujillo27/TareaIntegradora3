@@ -100,10 +100,9 @@ public class ProfessionalTeam {
 
 	/**
 	 * takes all alignments from the team's arraylist and displays the matrix as simulation<br>
-	 * <b> pre:  </b> 
-	 * @return a message that say, if the song add to playlist correctly or not
+	 * <b> pre: there must be at leats one alignment created  </b> 
+	 * @return a message with the ProfessionalTeam name and all the alignment of the ProfessionalTeam in matrix form
 	 */
-
 	public String showMatrizLineup() {
 		String msg = "*******************Equipo: " + name + "++++++++++++++++++++" + "\n";
 		for (int i = 0; i < this.lineUp.size(); i++) {
@@ -112,6 +111,11 @@ public class ProfessionalTeam {
 		return msg;
 	}
 
+	/**
+	 * adds a new ProfessionalTeam LineUp<br>
+	 * <b> pre: two alignments can't be created for the same date   </b> 
+	 * @return a message informing if the alignment is create or if there is one created for that date 
+	 */
 	public String lineUpToTeam(String date, String tactic, String formation) {
 		String msg = "Alineacion agregada" + "\n";
 		for (int i = 0; i < this.lineUp.size(); i++) {
@@ -126,6 +130,12 @@ public class ProfessionalTeam {
 		return msg;
 	}
 
+
+	/**
+	 * displays team information on screen<br>
+	 * <b> pre: we need all the Team information: name, headCoach, assistants, players and LineUp </b> 
+	 * @return a message showing all the information of the Team 
+	 */
 	public String showTeamInfo() {
 		String msg = "**************EQUIPO**************" + "\n" + "Nombre: " + this.name + "\n" + "DT: "
 				+ this.headCoach.getName() + "\n" + "Asistentes: ";
