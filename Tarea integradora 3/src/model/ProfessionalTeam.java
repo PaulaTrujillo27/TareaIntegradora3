@@ -114,6 +114,7 @@ public class ProfessionalTeam {
 	/**
 	 * adds a new ProfessionalTeam LineUp<br>
 	 * <b> pre: two alignments can't be created for the same date   </b> 
+	 * @param date, tactic, formation= date string, tactic String, formation String
 	 * @return a message informing if the alignment is create or if there is one created for that date 
 	 */
 	public String lineUpToTeam(String date, String tactic, String formation) {

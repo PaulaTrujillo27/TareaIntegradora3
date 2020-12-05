@@ -129,11 +129,10 @@ public class FootballClub {
 	}
 
 	/**
-	 * is in charge of verifying if the song was added correctly<br>
-	 * <b> pre: we need the information of the song already created and that it has gone through the "addsongtoplaylist" methods in the main and in the MCS </b> 
-	 * @param objsong song information
-	 * @param objuser user information
-	 * @return a message that say, if the song add to playlist correctly or not
+	 * find the employee by comparing the name that the user enter <br>
+	 * <b> pre: there can't  be two employees with the same name
+	 * @param name= Employee name 
+	 * @return the employee or if the employee doen't exist return the null value 
 	 */
 	public Employee findEmployee(String name) {
 		Employee objSearch = null;
@@ -148,6 +147,12 @@ public class FootballClub {
 
 	}
 
+	/**
+	 * search for an employee in the offices or dressing room by name <br>
+	 * <b> pre: the employee has to be enter for the user 
+	 * @param name= Employee name 
+	 * @return a message where gives the information of the coach abd player where they are located or a message saying that they are neither in the offices nor in the dressing rooms
+	 */
 	public String employeeLocation(String name) {
 		Employee objSearch = findEmployee(name);
 		String msg = "";
@@ -191,12 +196,16 @@ public class FootballClub {
 		return msg;
 	}
 
-	// ________________________principal
-	// coach_____________________________________________________________
+
+	/**
+	 * add a new employee of type HeadCoach
+	 * <b> pre: an employee with the same name can't exist 
+	 * @param yearsExperience, name, id, salary, numbersTeams= yearsExperience int, name String, id String, salary double, numbersTeams int
+	 * @return a message saying that the employee has been registered or if there's an employee with the same name it says that the employee already exists 
+	 */
 	public String addEmployee(int yearsExperience, String name, String id, double salary, int numbersTeams,
 			int championships) {
 		String message = "";
-		boolean addPl = false;
 
 		Employee objSearch = findEmployee(name);
 		if (objSearch != null) {
@@ -207,12 +216,15 @@ public class FootballClub {
 			addPl = true;
 			message = "El empleado ha sido registrado";
 		}
-		if (addPl == false) {
-			message = "All employee are already created";
-		}
 		return message;
 	}
 
+	/**
+	 * update the HeadCoach information depending what user wants to update <br>
+	 * <b> pre: HeadCoach with that name has to be created 
+	 * @param yearsExperience, name, salary, championships, status, atribute=  yearsExperience int, name String, salary double, championships int, status String
+	 * @return a message saying that the HeadCoach information has been successfully updated or if the name entered isn't from any headCoach the message says that can't found a HeadCoach with that name
+	 */
 	public String updateEmployeesInfo(int yearsExperience, String name, double salary, int championships, String status,
 			int attribute) {
 		String msg = "Se ha actualizado la informacion del entrenador principal exitosamente" + "\n";
@@ -247,18 +259,21 @@ public class FootballClub {
 			}
 		}
 		if (found == false) {
-			msg = "El empleado con ID " + name + " no es un entrenador principal o no esta registrado en el Club"
+			msg = "El empleado con nombre " + name + " no es un entrenador principal o no esta registrado en el Club"
 					+ "\n";
 		}
 		return msg;
 	}
 
-	// ________________________Asistent
-	// coach_____________________________________________________________
+	/**
+	 * add a new employee of type AssistantCoach
+	 * <b> pre: an employee with the same name can't exist 
+	 * @param yearsExperience, name, id, salary, exPlayer= yearsExperience int, name String, id String, salary double, exPlayer int
+	 * @return a message saying that the employee has been registered or if there's an employee with the same name it says that the employee already exists 
+	 */
 	public String addEmployee(int yearsExperience, String name, String id, double salary, int exPlayer,
 			String expertise) {
 		String message = "";
-		boolean addPl = false;
 
 		Employee objSearch = findEmployee(name);
 		if (objSearch != null) {
@@ -269,13 +284,15 @@ public class FootballClub {
 			addPl = true;
 			message = "The employee has been registered";
 		}
-		if (addPl == false) {
-			message = "All employee are already created";
-		}
-
 		return message;
 	}
 
+	/**
+	 * update the AssistantCoach information depending what user wants to update <br>
+	 * <b> pre: AssistantCoach with that name has to be created 
+	 * @param yearsExperience, attribute, name, salary, status=  yearsExperience int, attribute int, name String, salary double, status String
+	 * @return a message saying that the AssistantCoach information has been successfully updated or if the name entered isn't from any AssistantCoach the message says that can't found a AssistantCoach with that name
+	 */
 	public String updateEmployeesInfo(int yearsExperience, int attribute, String name, double salary, String status) {
 		String msg = "Se ha actualizado la informacion del entrenador asistente exitosamente" + "\n";
 		boolean found = false;
@@ -314,8 +331,13 @@ public class FootballClub {
 		return msg;
 	}
 
-	// ________________________soccer
-	// player_____________________________________________________________
+
+	/**
+	 * add a new employee of type Player
+	 * <b> pre: an employee with the same name can't exist 
+	 * @param  name, id, salary, dorsal, rating, position= name String, id String, salary double, dorsal int, rating int, position String 
+	 * @return a message saying that the employee has been registered or if there's an employee with the same name it says that the employee already exists 
+	 */
 	public String addEmployee(String name, String id, double salary, int dorsal, int rating, String position) {
 		String message = "";
 		boolean addPl = false;
@@ -336,6 +358,13 @@ public class FootballClub {
 		return message;
 	}
 
+
+	/**
+	 * update the Player information depending what user wants to update <br>
+	 * <b> pre: Player with that name has to be created 
+	 * @param name, salary, status, dorsal, goals, rating= name String, salary double, status String, dorsal int, goals int, rating int
+	 * @return a message saying that the Player information has been successfully updated or if the name entered isn't from any Player the message says that can't found a Player with that name
+	 */
 	public String updateEmployeesInfo(String name, double salary, String status, int dorsal, int goals, int rating,
 			int attribute) {
 		String msg = "Se ha actualizado la informacion del jugador exitosamente" + "\n";
@@ -380,6 +409,12 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * look for the employee inside the offices and dressing rooms <br>
+	 * <b> pre: the employee has to be created in the club  
+	 * @param name= name string 
+	 * @return a array with the employee's location 
+	 */
 	public int[] findInMatriz(String name) {
 		int[] location = new int[3];
 		Employee newEmployee = findEmployee(name);
@@ -415,6 +450,13 @@ public class FootballClub {
 		return location;
 	}
 
+
+	/**
+	 * dissmis an employee <br>
+	 * <b> pre: the person has to be a club employee  
+	 * @param name= name String
+	 * @return a message saying that the employee has been dismiss or no
+	 */
 	public String dismiss(String name) {
 		String message = "";
 		Employee objSearch = findEmployee(name);
@@ -475,6 +517,12 @@ public class FootballClub {
 		return message;
 	}
 
+	/**
+	 * add a player to team A or team B <br>
+	 * <b> pre: team A and team B has to been created  
+	 * @param playerName, teamName= playerName String, teamName String 
+	 * @return a message saying that the player could be added or that the player doesn't exist or that the team is full
+	 */
 	public String playerToTeam(String playerName, String teamName) {
 		String msg = "";
 		boolean added = false;
@@ -517,6 +565,12 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * add an AssistantCoach to team A or team B <br>
+	 * <b> pre: team A and team B has to been created  
+	 * @param assistantName, teamName= assistantName String, teamName String 
+	 * @return a message saying that the AssistantCoach could be added or that the AssistantCoach doesn't exist or that the team is full
+	 */
 	public String assistantToTeam(String assistantName, String teamName) {
 		String msg = "";
 		boolean added = false;
@@ -559,6 +613,12 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * add a HeadCoach to team A or team B <br>
+	 * <b> pre: team A and team B has to been created  
+	 * @param coachName, teamName= coachName String, teamName String 
+	 * @return a message saying that the HeadCoach could be added or that the HeadCoach doesn't exist or that the team is full
+	 */
 	public String headcoachToTeam(String coachName, String teamName) {
 		String msg = "";
 		HeadCoach coach = (HeadCoach) findEmployee(coachName);
@@ -588,6 +648,13 @@ public class FootballClub {
 		return msg;
 	}
 
+
+	/**
+	 * add a player to team A or team B <br>
+	 * <b> pre: team A and team B has to been created  
+	 * @param playerName, teamName= playerName String, teamName String 
+	 * @return a message saying that the player could be added or that the player doesn't exist or that the team is full
+	 */
 	public String playerToDressingRoom(String teamName, String playerName) {
 		Player newplayer = (Player) findEmployee(playerName);
 		String msg = "";
