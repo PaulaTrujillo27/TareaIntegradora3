@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class FootballClub {
 
-	// Attribute
+	// Attributes
 	private final static int ORDER_OFFICE = 6;
 	private final static int DR_ROWA = 7, DR_COLUMNSA = 6;
 	private final static int ORDER_DRB = 7;
@@ -650,10 +650,10 @@ public class FootballClub {
 
 
 	/**
-	 * add a player to team A or team B <br>
-	 * <b> pre: team A and team B has to been created  
-	 * @param playerName, teamName= playerName String, teamName String 
-	 * @return a message saying that the player could be added or that the player doesn't exist or that the team is full
+	 * add a player to the dressing room depending if the player are in team A or team B <br>
+	 * <b> pre: the player has to be in team A or team B  
+	 * @param teamName, playerName= teamName String, playerName String 
+	 * @return a message saying that the player could be added to the dressing room  or that the player doesn't exist or that the dressing room is full
 	 */
 	public String playerToDressingRoom(String teamName, String playerName) {
 		Player newplayer = (Player) findEmployee(playerName);
@@ -726,6 +726,12 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * add a HeadCoach and an AssistantCoach to the office  <br>
+	 * <b> pre: has to exist a HeadCoach and AssistantCoach with that name 
+	 * @param coachname= coachName String  
+	 * @return a message saying that the HeadCoach or the AssistantCoach could be added to the office  or that the HeadCoach or AssistantCoach don't exist or that the office is full
+	 */
 	public String coachToOffice(String coachName) {
 		String msg = "";
 		boolean added = false;
@@ -792,6 +798,11 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * create a Team (team A or team B) <br> 
+	 * @param teamName, team= teamName String, team String  
+	 * @return a message saying that the Team A or Team B has been created 
+	 */
 	public String createTeam(String teamName, String team) {
 		String msg = "Opcion de equipo invalida" + "\n";
 		if (team.equalsIgnoreCase("A")) {
@@ -804,6 +815,13 @@ public class FootballClub {
 		return msg;
 	}
 
+
+	/**
+	 * update the Team information depending what user wants to update <br>
+	 * <b> pre: Team with that name has to be created 
+	 * @param teamName, newName, date, tactic, formation, choice= teamName String, newName String, date String, tactic String, formation String 
+	 * @return a message saying that the Team information has been successfully updated or if the name entered isn't from any Team the message says that can't found a Team with that name
+	 */
 	public String updateTeamInfo(String teamName, String newName, String date, String tactic, String formation,
 			int choice) {
 		String msg = "El equipo no existe" + "/n";
@@ -836,6 +854,13 @@ public class FootballClub {
 		return msg;
 	}
 
+
+	/**
+	 * the user decides if he wants to see the lineUp in the matrix form of the two teams or of just one <br>
+	 * <b> pre: teams must be created and have at least one lineUp  </b> 
+	 @param teamName, choice= teamName String, choice int 
+	 * @return a message showing the lineUp in the matrix form for team A or team B or both 
+	 */
 	public String showTeamMatriz(String teamName, int choice) {
 		String msg = "Opcion Invalida";
 		if (choice == 1) {
@@ -853,6 +878,11 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * shows on screen all the information of all employees <br>
+	 * <b> pre:  the employees has to been created with their information </b> 
+	 * @return a message showing the all the information of all employees 
+	 */
 	public String showEmployeesInfo() {
 		String msg = "";
 		for (int i = 0; i < this.employee.size(); i++) {
@@ -861,12 +891,22 @@ public class FootballClub {
 		return msg;
 	}
 
+	/**
+	 * shows on screen all the information of the both teams <br>
+	 * <b> pre:  the teams has to been created with their information </b> 
+	 * @return a message showing the all the information of all teams
+	 */
 	public String showTeamsInfo() {
 		String msg = this.teamA.showTeamInfo();
 		msg += this.teamB.showTeamInfo();
 		return msg;
 	}
 
+	/**
+	 * displays Club information on screen<br>
+	 * <b> pre: we need all the Club information: name, nit, foundationDate, employee, teams amount, team A, team B </b> 
+	 * @return a message showing all the information of the Club
+	 */
 	public String showClubInfo() {
 		int teamsAmount = 0;
 		String msg = "******************CLUB****************" + "/n" + "Nombre: " + this.name + "/n" + "Nit: "
