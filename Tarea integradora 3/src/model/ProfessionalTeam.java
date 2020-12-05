@@ -11,6 +11,11 @@ public class ProfessionalTeam {
 	private Player[] players;
 	private ArrayList<Lineup> lineUp;
 
+	/**
+	 * constructor method <br>
+	 * <b> pre: we need the atributes and relationships </b> 
+	 * @param  name= name String
+	 */
 	public ProfessionalTeam(String name) {
 		this.name = name;
 		this.players = new Player[MAX_PLAYERS];
@@ -23,29 +28,63 @@ public class ProfessionalTeam {
 		this.headCoach = headCoach;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return headCoach= HeadCoach information 
+	 */
 	public HeadCoach getHeadCoach() {
 		return this.headCoach;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return players= Players information
+	 */
 	public Player[] getPlayers() {
 		return this.players;
 	}
 
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return name= ProfessionalTeam name
+	 */
+	public String getName() {
+		return this.name;
+	}
+	
+	
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param name= ProfessionalTeam name 
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName() {
-		return this.name;
-	}
+
+	/**
+	 * get method <br>
+	 * <b> pre: constructor method </b> 
+	 * @return assistants= Assistants information 
+	 */
 
 	public AssistantCoach[] getAssistants() {
 		return this.assistants;
 	}
 
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param assistants and index
+	 */
 	public void setAssistants(AssistantCoach assistants, int index) {
 		this.assistants[index] = assistants;
 	}
+
 
 	public int findPlayer(String name) {
 		int index = 30;
@@ -58,6 +97,12 @@ public class ProfessionalTeam {
 		}
 		return index;
 	}
+
+	/**
+	 * takes all alignments from the team's arraylist and displays the matrix as simulation<br>
+	 * <b> pre:  </b> 
+	 * @return a message that say, if the song add to playlist correctly or not
+	 */
 
 	public String showMatrizLineup() {
 		String msg = "*******************Equipo: " + name + "++++++++++++++++++++" + "\n";
