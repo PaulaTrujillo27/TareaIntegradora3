@@ -23,7 +23,12 @@ public class ProfessionalTeam {
 		this.headCoach = null;
 		this.lineUp = new ArrayList<Lineup>();
 	}
-
+	
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param headCoach = ProfessionalTeam headCoach
+	 */
 	public void setHeadCoach(HeadCoach headCoach) {
 		this.headCoach = headCoach;
 	}
@@ -85,7 +90,12 @@ public class ProfessionalTeam {
 		this.assistants[index] = assistants;
 	}
 
-
+	/**
+	 * find the player by comparing the name that the user enter <br>
+	 * <b> pre: there can't  be two players with the same name
+	 * @param name= Player name 
+	 * @return the number of the index that contains the player object or if the player doen't exist return the number 30
+	 */
 	public int findPlayer(String name) {
 		int index = 30;
 		boolean found = false;
@@ -118,19 +128,24 @@ public class ProfessionalTeam {
 	 * @return a message informing if the alignment is create or if there is one created for that date 
 	 */
 	public String lineUpToTeam(String date, String tactic, String formation) {
-		String msg = "Alineacion agregada" + "\n";
-		for (int i = 0; i < this.lineUp.size(); i++) {
-			if (this.lineUp.get(i).getDate().equalsIgnoreCase(date)) {
-				msg = "Ya existe una alineacion para esa fecha";
-			} else {
-				Lineup newLineUp = new Lineup(date, tactic);
-				msg += newLineUp.convertToMatriz(formation);
-				this.lineUp.add(newLineUp);
+		String msg = "NO ha sido posible agregar la alineacion";
+		boolean added=false;
+		for (int i = 0; i < this.lineUp.size() && !added; i++) {
+			if(this.lineUp.get(i).getDate().equalsIgnoreCase(date)) {
+			added = true;
 			}
+		}
+		if(added == false) {
+			Lineup newLineUp = new Lineup(date, tactic);
+			newLineUp.convertToMatriz(formation);
+			this.lineUp.add(newLineUp);
+			msg = "La alineacion se agrego correctamente"+"\n";
+		}
+		else {
+			msg += "ya existe una alineacion en esa fecha"+"\n";
 		}
 		return msg;
 	}
-
 
 	/**
 	 * displays team information on screen<br>

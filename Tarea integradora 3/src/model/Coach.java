@@ -15,10 +15,19 @@ public abstract class Coach extends Employee {
 		this.yearsExperience = yearsExperience;
 	}
 
+	/**
+	* get method <br>
+	* <b> pre: constructor method </b> 
+	* @return yearsExperience = Coach yearsExperience
+	*/
 	public int getYearsExperience() {
 		return this.yearsExperience;
 	}
-
+	/**
+	 * set constructor <br>
+	 * <b> pre: constructor method </b> 
+	 * @param years= Coach years
+	 */
 	public void setExperienceYears(int years) {
 		this.yearsExperience += years;
 	}

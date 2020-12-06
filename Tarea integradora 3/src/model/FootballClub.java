@@ -203,8 +203,7 @@ public class FootballClub {
 	 * @param yearsExperience, name, id, salary, numbersTeams= yearsExperience int, name String, id String, salary double, numbersTeams int
 	 * @return a message saying that the employee has been registered or if there's an employee with the same name it says that the employee already exists 
 	 */
-	public String addEmployee(int yearsExperience, String name, String id, double salary, int numbersTeams,
-			int championships) {
+	public String addEmployee(int yearsExperience, String name, String id, double salary, int numbersTeams,	int championships) {
 		String message = "";
 
 		Employee objSearch = findEmployee(name);
@@ -213,7 +212,6 @@ public class FootballClub {
 		} else {
 			HeadCoach headcoach = new HeadCoach(yearsExperience, name, id, salary, numbersTeams, championships);
 			employee.add(headcoach);
-			addPl = true;
 			message = "El empleado ha sido registrado";
 		}
 		return message;
@@ -225,8 +223,7 @@ public class FootballClub {
 	 * @param yearsExperience, name, salary, championships, status, atribute=  yearsExperience int, name String, salary double, championships int, status String
 	 * @return a message saying that the HeadCoach information has been successfully updated or if the name entered isn't from any headCoach the message says that can't found a HeadCoach with that name
 	 */
-	public String updateEmployeesInfo(int yearsExperience, String name, double salary, int championships, String status,
-			int attribute) {
+	public String updateEmployeesInfo(int yearsExperience, String name, double salary, int championships, String status, int attribute) {
 		String msg = "Se ha actualizado la informacion del entrenador principal exitosamente" + "\n";
 		boolean found = false;
 		for (int i = 0; i < employee.size() && !found; i++) {
@@ -271,8 +268,7 @@ public class FootballClub {
 	 * @param yearsExperience, name, id, salary, exPlayer= yearsExperience int, name String, id String, salary double, exPlayer int
 	 * @return a message saying that the employee has been registered or if there's an employee with the same name it says that the employee already exists 
 	 */
-	public String addEmployee(int yearsExperience, String name, String id, double salary, int exPlayer,
-			String expertise) {
+	public String addEmployee(int yearsExperience, String name, String id, double salary, int exPlayer, String expertise) {
 		String message = "";
 
 		Employee objSearch = findEmployee(name);
@@ -281,7 +277,6 @@ public class FootballClub {
 		} else {
 			AssistantCoach assistant = new AssistantCoach(yearsExperience, name, id, salary, exPlayer, expertise);
 			employee.add(assistant);
-			addPl = true;
 			message = "The employee has been registered";
 		}
 		return message;
@@ -365,8 +360,7 @@ public class FootballClub {
 	 * @param name, salary, status, dorsal, goals, rating= name String, salary double, status String, dorsal int, goals int, rating int
 	 * @return a message saying that the Player information has been successfully updated or if the name entered isn't from any Player the message says that can't found a Player with that name
 	 */
-	public String updateEmployeesInfo(String name, double salary, String status, int dorsal, int goals, int rating,
-			int attribute) {
+	public String updateEmployeesInfo(String name, double salary, String status, int dorsal, int goals, int rating,int attribute) {
 		String msg = "Se ha actualizado la informacion del jugador exitosamente" + "\n";
 		boolean found = false;
 		for (int i = 0; i < this.employee.size() && !found; i++) {
@@ -807,10 +801,10 @@ public class FootballClub {
 		String msg = "Opcion de equipo invalida" + "\n";
 		if (team.equalsIgnoreCase("A")) {
 			this.teamA = new ProfessionalTeam(teamName);
-			msg += "El equipo " + teamName + " ha sido creado" + "\n";
+			msg = "El equipo " + teamName + " ha sido creado" + "\n";
 		} else if (team.equalsIgnoreCase("B")) {
 			this.teamB = new ProfessionalTeam(teamName);
-			msg += "El equipo " + teamName + " ha sido creado" + "\n";
+			msg = "El equipo " + teamName + " ha sido creado" + "\n";
 		}
 		return msg;
 	}
@@ -822,8 +816,7 @@ public class FootballClub {
 	 * @param teamName, newName, date, tactic, formation, choice= teamName String, newName String, date String, tactic String, formation String 
 	 * @return a message saying that the Team information has been successfully updated or if the name entered isn't from any Team the message says that can't found a Team with that name
 	 */
-	public String updateTeamInfo(String teamName, String newName, String date, String tactic, String formation,
-			int choice) {
+	public String updateTeamInfo(String teamName, String newName, String date, String tactic, String formation,int choice) {
 		String msg = "El equipo no existe" + "/n";
 		if (this.teamA.getName().equalsIgnoreCase(teamName)) {
 			switch (choice) {
